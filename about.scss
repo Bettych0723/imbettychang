@@ -1,0 +1,237 @@
+@import "./default";
+@import "./mixin";
+
+// 漢堡條
+/* CORE STYLES */
+:root {
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgba(24, 39, 51, 0.85);
+    --menu-speed: 0.75s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.4;
+    background-image: url(./img/大理石紋.jpg);
+    // background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    // height: 2000px;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    z-index: 1000;
+    .logo {
+        position: relative;
+        font-size: 2em;
+        color: #8f0105;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-decoration: none;
+        span {
+            color:black;
+        }
+    }
+}
+
+// 履歷內容
+.container {
+    // .row{
+    //     height: 500px;
+    // }
+    h2 {
+        text-align: center;
+        color: black;
+        position: relative;
+        margin-bottom: 100px;
+        &::after {
+            content: "ABOUT";
+            position: absolute;
+            font-size: 150px;
+            top: -70px;
+            left: 20px;
+            font-weight: 700;
+            color: rgba($color: #000000, $alpha: 0.2);
+            text-transform: uppercase;
+            @media (max-width: 800px) {
+                font-size: 120px;
+                top: -60px;
+            }
+        }
+    }
+
+    .imgbox {
+        position: relative;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        margin: auto;
+        @media (max-width: 991px) {
+            // margin-top: 100px;
+        }
+        img {
+            margin: auto;
+            border: 6px solid#fff;
+            // position: absolute;
+            // bottom: 15%;
+            width: 80%;
+            // height: 50%;
+            z-index: 1111;
+            border-radius: 0%;
+            // @media (max-width: 600px) {
+            //     width: 100%;
+            // }
+        }
+    }
+    .textbox {
+        margin-top: 60px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        h4 {
+            color: #8f0105;
+            letter-spacing: 1px;
+            @media (max-width: 991px) {
+                font-size: 25px;
+            }
+            span {
+                font-size: 20px;
+                color: rgb(82, 82, 82);
+                @media (max-width: 991px) {
+                    font-size: 18px;
+                }
+            }
+        }
+        .resume {
+            position: relative;
+            display: inline-block;
+            background:gray;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            // opacity: 0.6;
+            &:hover {
+                background: #8f0105;
+                opacity: 1;
+            }
+        }
+        .sci {
+            margin-top: 20px;
+            display: flex;
+            li {
+                list-style: none;
+                .social-icon {
+                    display: inline-block;
+                    margin-right: 5px;
+                    background: none;
+                    &:hover .fa-circle {
+                        // color: #8f0105;
+                        // color: #330708;
+                        color: #8f0105;
+                        opacity: 1;
+                    }
+                    // @media (max-width: 991px) {
+                    //     padding-bottom: 10px;
+                    // }
+                    span {
+                        .fa-circle {
+                            transition: 0.5s;
+                            color: gray;
+                            // opacity: 0.75;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .title-2 {
+        width: 150px;
+        border: 1px solid #8f0105;
+        // background-color:rgba(255, 255, 255, 0.8);
+        border-radius: 25px;
+        margin: 20px 0px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #8f0105;
+    }
+
+    .school {
+        float: left;
+        color:  rgb(82, 82, 82);
+        margin: 0;
+    }
+    p {
+        text-align: right;
+        font-size: 18px;
+        color: rgb(82, 82, 82);
+    }
+    .skill {
+        .fab {
+            color: rgb(82, 82, 82);
+            margin: 0 10px 20px 0;
+            // opacity: 0.8;
+            span{
+                font-size: 25px;
+                color: rgb(82, 82, 82) ;
+            }
+        }
+    }
+}
+#footer {
+    width: 100%;
+    background-color: gray;
+    opacity: 0.8;
+    /* display: flex;
+    flex-wrap: nowrap; */
+}
+
+.footer_content{
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+// 社群連結
+// .sci {
+//     @include sci();
+// }
+
+// progress line
+.progress {
+    position: fixed;
+    height: 5px;
+    background-color: #8f0105;
+    z-index: 99;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+}
+
+/* 漢堡條 */
+.menu-wrap {
+    @include hamburger();
+    @include burgerAtive();
+}

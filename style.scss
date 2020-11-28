@@ -1,0 +1,223 @@
+@import "./default";
+@import "./mixin";
+
+// 漢堡條
+/* CORE STYLES */
+:root {
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgba(24, 39, 51, 0.85);
+    --menu-speed: 0.75s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    z-index: 1000;
+    .logo {
+        position: relative;
+        font-size: 2em;
+        color: #8f0105;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-decoration: none;
+        span {
+            color: black;
+        }
+    }
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    // background: #111;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @media (max-width: 991px) {
+        padding: 150ox 50px 0;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     right: 0;
+    //     top: 0;
+    //     width: 400px;
+    //     height: 100%;
+    //     background: rgba($color: #8f0105, $alpha: 0.4);
+    //     transform-origin: top;
+    //     transform: skewX(-20deg);
+    //     z-index: 10;
+    //     @media (max-width: 991px) {
+    //         width: 300px;
+    //         transform: skewX(-25deg) translateX(50%);
+    //     }
+    // }
+
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+        pointer-events: none;
+        // z-index: -1;
+    }
+    .textbox {
+        position: relative;
+        max-width: 600px;
+        z-index: 12;
+        @media (max-width: 991px) {
+            max-width: 100%;
+        }
+        .title {
+            font-family: "Poppins", Arial, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+            // color: #8d0004;
+            color: #8c8c8c;
+            @media (max-width: 991px) {
+                color: #fff;
+            }
+        }
+        h2 {
+            // color: #fff;
+            color: #8d0004;
+            font-size: 3em;
+        }
+        p {
+            color: black;
+            font-size: 1.1em;
+            // margin: 5px 0 25px;
+        }
+        a {
+            position: relative;
+            display: inline-block;
+            background: #8f0105;
+            color: #fff;
+            padding: 5px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            opacity: 0.6;
+            z-index: 50;
+            &:hover {
+                opacity: 1;
+            }
+            @media (max-width: 991px){
+                margin-bottom: 10%;
+            }
+        }
+    }
+    .imgbox {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        z-index: 3;
+
+        img {
+            border: 6px solid#fff;
+            position: absolute;
+            bottom: 15%;
+            // width: 40%;
+            height: 70%;
+            z-index: 1111;
+            border-radius: 0%;
+        }
+    }
+
+
+    // 社群連結
+    .sci {
+        position: absolute;
+        bottom: 20px;
+        right: 100px;
+        // letter-spacing: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        @media (max-width: 991px) {
+            z-index: 100;
+            left: initial;
+            right: 20px;
+            flex-direction: column;
+        }
+        li {
+            list-style: none;
+            .social-icon {
+                display: inline-block;
+                margin-right: 15px;
+                &:hover .fa-circle {
+                    color: #8f0105;
+                }
+                @media (max-width: 991px) {
+                    padding-bottom: 10px;
+                }
+                span {
+                    .fa-circle {
+                        transition: 0.5s;
+                        color: #330708;
+                    }
+                }
+            }
+        }
+    }
+}
+#footer {
+    width: 100%;
+    background-color: gray;
+    opacity: 0.8;
+    /* display: flex;
+    flex-wrap: nowrap; */
+}
+
+.footer_content{
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+
+// progress line
+.progress {
+    position: fixed;
+    height: 5px;
+    background-color: #8f0105;
+    z-index: 99;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+}
+
+/* 漢堡條 */
+.menu-wrap {
+    @include hamburger();
+    @include burgerAtive();
+}

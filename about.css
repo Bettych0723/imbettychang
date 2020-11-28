@@ -1,0 +1,438 @@
+@charset "UTF-8";
+/* CORE STYLES */
+:root {
+  --primary-color: rgba(13, 110, 139, 0.75);
+  --overlay-color: rgba(24, 39, 51, 0.85);
+  --menu-speed: 0.75s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+  background-image: url(./img/大理石紋.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px 100px;
+  z-index: 1000;
+}
+
+header .logo {
+  position: relative;
+  font-size: 2em;
+  color: #8f0105;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+header .logo span {
+  color: black;
+}
+
+.container h2 {
+  text-align: center;
+  color: black;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.container h2::after {
+  content: "ABOUT";
+  position: absolute;
+  font-size: 150px;
+  top: -70px;
+  left: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .container h2::after {
+    font-size: 120px;
+    top: -60px;
+  }
+}
+
+.container .imgbox {
+  position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 3;
+  margin: auto;
+}
+
+.container .imgbox img {
+  margin: auto;
+  border: 6px solid #fff;
+  width: 80%;
+  z-index: 1111;
+  border-radius: 0%;
+}
+
+.container .textbox {
+  margin-top: 60px;
+}
+
+.container .textbox h4 {
+  color: #8f0105;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 991px) {
+  .container .textbox h4 {
+    font-size: 25px;
+  }
+}
+
+.container .textbox h4 span {
+  font-size: 20px;
+  color: #525252;
+}
+
+@media (max-width: 991px) {
+  .container .textbox h4 span {
+    font-size: 18px;
+  }
+}
+
+.container .textbox .resume {
+  position: relative;
+  display: inline-block;
+  background: gray;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.container .textbox .resume:hover {
+  background: #8f0105;
+  opacity: 1;
+}
+
+.container .textbox .sci {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .textbox .sci li {
+  list-style: none;
+}
+
+.container .textbox .sci li .social-icon {
+  display: inline-block;
+  margin-right: 5px;
+  background: none;
+}
+
+.container .textbox .sci li .social-icon:hover .fa-circle {
+  color: #8f0105;
+  opacity: 1;
+}
+
+.container .textbox .sci li .social-icon span .fa-circle {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: gray;
+}
+
+.container .title-2 {
+  width: 150px;
+  border: 1px solid #8f0105;
+  border-radius: 25px;
+  margin: 20px 0px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8f0105;
+}
+
+.container .school {
+  float: left;
+  color: #525252;
+  margin: 0;
+}
+
+.container p {
+  text-align: right;
+  font-size: 18px;
+  color: #525252;
+}
+
+.container .skill .fab {
+  color: #525252;
+  margin: 0 10px 20px 0;
+}
+
+.container .skill .fab span {
+  font-size: 25px;
+  color: #525252;
+}
+
+#footer {
+  width: 100%;
+  background-color: gray;
+  opacity: 0.8;
+  /* display: flex;
+    flex-wrap: nowrap; */
+}
+
+.footer_content {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.progress {
+  position: fixed;
+  height: 5px;
+  background-color: #8f0105;
+  z-index: 99;
+}
+
+nav {
+  width: 100%;
+  height: 60px;
+}
+
+/* 漢堡條 */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  right: 5%;
+  z-index: 1;
+  /* Rotate On Hover When Checked */
+  /* Show Menu */
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* Hamburger Line */
+}
+
+.menu-wrap .hamburger .hamburger-line {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 100%;
+  height: 3px;
+  background: gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .hamburger .hamburger-line::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger .hamburger-line::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  width: 100%;
+  height: 3px;
+  background: inherit;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: rgba(5, 3, 9, 0.9);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  z-index: 15;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: left;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div ul li {
+  list-style: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div ul li a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div ul li a span {
+  font-size: 40px;
+  color: white;
+  position: relative;
+  padding: 0 10px;
+}
+
+.menu-wrap .menu > div > div ul li a span small {
+  position: absolute;
+  bottom: 10px;
+  left: -25px;
+  font-size: 20px;
+  color: #666666;
+  border-bottom: 1px solid #666666;
+}
+
+.menu-wrap .toggler.active ~ .hamburger > div {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  /* Turns Lines Into X */
+}
+
+.menu-wrap .toggler.active ~ .hamburger > div::before {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.menu-wrap .toggler.active ~ .hamburger > div::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.menu-wrap .toggler.active:hover ~ .hamburger > div {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+
+.menu-wrap .toggler.active ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler.active ~ .menu > div {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-duration: var(--menu-speed);
+          transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler.active ~ .menu > div > div {
+  opacity: 1;
+  -webkit-transition: opacity 0.4s ease 0.4s;
+  transition: opacity 0.4s ease 0.4s;
+}
+/*# sourceMappingURL=about.css.map */
